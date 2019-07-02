@@ -15,7 +15,7 @@
         <v-list-tile-avatar>
         </v-list-tile-avatar>
         <v-list-tile-title class="title">
-          <router-link to="/home">Blind Interview</router-link>
+          <router-link to="/home">Interview</router-link>
         </v-list-tile-title>
       </v-list-tile>
       <v-divider/>
@@ -53,10 +53,9 @@ export default {
   data: () => ({
     links: [
       { to: '/home', text: 'HOME' },
-      { to: '/want-list', text: '채용공고' },
-      { to: '/interview-list', text: '면접' },
-      { to: '/pr-list', text: '자기PR' },
-      { to: '/fq', text: 'F&Q' },
+      { to: '/login', text: '로그인' },
+      { to: '/join', text: '회원가입' },
+      { to: '/mypage', text: '마이페이지' },
       { to: '/seeker-list', text: '회원목록(관리자)' }
     ],
     responsive: false

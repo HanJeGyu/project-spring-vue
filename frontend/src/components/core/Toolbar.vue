@@ -45,7 +45,7 @@
             <tr><router-link to="/login">로그인</router-link></tr>
             <tr><router-link to="/join">회원가입</router-link></tr>
             <tr><router-link to="/mypage">마이페이지</router-link></tr>
-          </template>
+          </template> 
         </v-menu>
       </v-flex>
     </v-toolbar-items>
