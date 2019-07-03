@@ -75,7 +75,6 @@ export default {
   data(){
     return {
       context: 'http://localhost:8888/jobseekers',
-      id: '',
       seekerId: '', 
       seekerName: '', 
       password: '', 
@@ -89,7 +88,6 @@ export default {
   created(){
     axios.get(`${this.context}/${this.$store.state.userId}`)
       .then(res=>{
-        this.id = res.data.id
         this.seekerId = res.data.seekerId
         this.seekerName = res.data.seekerName
         this.password = res.data.password,
@@ -121,7 +119,6 @@ export default {
         alert('이메일주소를 입력하세요')
       }else{
         let data = {
-          id: this.id,
           seekerId: this.seekerId,
           seekerName: this.seekerName,
           password: this.password, 

@@ -10,7 +10,7 @@
             <v-text-field label="아이디" class="purple-input" v-model="seekerId"/>
           </v-flex>
           <v-flex xs12 md12>
-            <v-text-field label="비밀번호" class="purple-input" v-model="password"/>
+            <v-text-field :type="'password'" label="비밀번호" class="purple-input" v-model="password"/>
           </v-flex>
           <v-flex xs12 text-xs-right>
             <v-btn v-on:click="login" class="mx-0 font-weight-light" color="success">로그인</v-btn>

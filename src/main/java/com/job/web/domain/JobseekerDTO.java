@@ -13,6 +13,5 @@ import lombok.Data;
 @Component
 public class JobseekerDTO {
 
-    private Long id;
     private String seekerId, seekerName, password, birth6, phone, email, industry, location;
 }

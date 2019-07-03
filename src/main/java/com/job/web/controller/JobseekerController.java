@@ -3,7 +3,6 @@ package com.job.web.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 import com.job.web.domain.JobseekerDTO;
@@ -39,9 +38,9 @@ public class JobseekerController {
 		return jbrep.count();
     }
 
-    @GetMapping("/{id}")
-	public JobseekerDTO findBySeekerId(@PathVariable String id){
-        return modelMapper.map(jbrep.findBySeekerId(id).get(), JobseekerDTO.class);
+    @GetMapping("/{seekerId}")
+	public JobseekerDTO findBySeekerId(@PathVariable String seekerId){
+        return modelMapper.map(jbrep.findBySeekerId(seekerId).get(), JobseekerDTO.class);
     }
     
     @GetMapping("/list")
@@ -71,7 +70,18 @@ public class JobseekerController {
     public HashMap<String, String> modify(@RequestBody JobseekerDTO dto){
         HashMap<String, String> map = new HashMap<>();
         try {
-            if(modelMapper.map(jbrep.save(modelMapper.map(dto, Jobseeker.class)), JobseekerDTO.class).getSeekerId().equals("")){
+            Jobseeker entity = Jobseeker.builder()
+                    .seekerId(dto.getSeekerId())
+                    .seekerName(dto.getSeekerName())
+                    .password(dto.getPassword())
+                    .birth6(dto.getBirth6())
+                    .phone(dto.getPhone())
+                    .email(dto.getEmail())
+                    .industry(dto.getIndustry())
+                    .location(dto.getLocation())
+                    .build();
+            entity.setId(jbrep.findBySeekerId(dto.getSeekerId()).get().getId());
+            if(modelMapper.map(jbrep.save(entity) ,JobseekerDTO.class).getSeekerId().equals("")){
                 map.put("result", "FAIL");
             }else{
                 map.put("result", "SUCCESS");
@@ -88,7 +98,17 @@ public class JobseekerController {
     public HashMap<String, String> join(@RequestBody JobseekerDTO dto){
         HashMap<String, String> map = new HashMap<>();
         try {
-            if(modelMapper.map(jbrep.save(modelMapper.map(dto, Jobseeker.class)), JobseekerDTO.class).getSeekerId().equals("")){
+            if(modelMapper.map(jbrep.save(Jobseeker.builder()
+                                                    .seekerId(dto.getSeekerId())
+                                                    .seekerName(dto.getSeekerName())
+                                                    .password(dto.getPassword())
+                                                    .birth6(dto.getBirth6())
+                                                    .phone(dto.getPhone())
+                                                    .email(dto.getEmail())
+                                                    .industry(dto.getIndustry())
+                                                    .location(dto.getLocation())
+                                                    .build())
+                                                    ,JobseekerDTO.class).getSeekerId().equals("")){
                 map.put("result", "FAIL");
             }else{
                 map.put("result", "SUCCESS");
@@ -101,11 +121,17 @@ public class JobseekerController {
         }
     }
 
-    @DeleteMapping("/{id}")
-	public HashMap<String, String> del(@PathVariable String id){
+    @DeleteMapping("/{seekerId}")
+	public HashMap<String, String> del(@PathVariable String seekerId){
         HashMap<String, String> map = new HashMap<>();
-        jbrep.deleteById(Long.parseLong(id));
-        map.put("result", "SUCCESS");
-        return map;
+        try {
+            jbrep.deleteById(jbrep.findBySeekerId(seekerId).get().getId());
+            map.put("result", "SUCCESS");
+            return map;
+        }catch(Exception e){
+            map.put("result", "FAIL");
+            return map;
+        }
+        
     }
 }
