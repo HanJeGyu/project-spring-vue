@@ -25,7 +25,7 @@
                 <v-text-field label="이메일주소" class="purple-input" v-model="email"/>
               </v-flex>
               <v-flex xs12 md12>
-                <v-text-field label="희망산업/직군" class="purple-input" v-model="industry"/>
+                <v-text-field label="산업/직군" class="purple-input" v-model="industry"/>
               </v-flex>
               <v-flex xs12 md12>
                 <v-text-field label="희망근무지" class="purple-input" v-model="location"/>
@@ -74,10 +74,6 @@ export default {
         alert('휴대폰번호를 입력하세요')
       }else if(this.email === ''){
         alert('이메일주소를 입력하세요')
-      }else if(this.email === ''){
-        alert('이메일주소를 입력하세요')
-      }else if(this.email === ''){
-        alert('이메일주소를 입력하세요')
       }else{
         let data = {
           seekerId: this.seekerId,
@@ -95,7 +91,8 @@ export default {
         }
         axios.post(`${this.context}/join`, JSON.stringify(data), {headers: headers})
         .then(res=>{
-          alert(`GET SUCCESS : ${res.data.result}`)
+          alert(`회원가입 ${res.data.result}`)
+          this.$router.push({path:'/login'})
         }).catch(e=>{
           alert('ERROR')
         })

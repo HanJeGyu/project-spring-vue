@@ -10,6 +10,9 @@ email VARCHAR(50) NOT NULL,
 industry VARCHAR(200),
 location VARCHAR(200)
 )DEFAULT CHARSET=utf8;
-/* insert into customers(customer_id,customer_name,password,ssn,phone,city,address,postalcode) values ('haha','changha kim','1234','950117-1622514','01076794338','광주광역시 광산구 사암로 306(월곡동)','금호아파트 13동408호','62347');
-insert into customers(customer_id,customer_name,password,ssn,phone,city,address,postalcode) values ('hoho','이규진','1234','910512-162513','010-4745-2222','서울특별시 성북구 화랑로 140-1(하월곡동)','한성아파트 104동101호','02793');
+/* insert into jobseekers(seeker_id,seeker_Name,password,birth_6,phone,email,industry,location) values ('han','kimid','1234','950117','01076794338','abc@gmail.com','웹프로그래머','서울');
+insert into jobseekers(seeker_id,seeker_Name,password,birth_6,phone,email,industry,location) values ('han2','kim2','1234','950117','01076794338','abc@gmail.com','웹프로그래머','서울');
+insert into jobseekers(seeker_id,seeker_Name,password,birth_6,phone,email,industry,location) values ('han3','kim3','1234','950117','01076794338','abc@gmail.com','웹프로그래머','서울');
+insert into jobseekers(seeker_id,seeker_Name,password,birth_6,phone,email,industry,location) values ('han4','kim4','1234','950117','01076794338','abc@gmail.com','웹프로그래머','서울');
+insert into jobseekers(seeker_id,seeker_Name,password,birth_6,phone,email,industry,location) values ('han5','kim5','1234','950117','01076794338','abc@gmail.com','웹프로그래머','서울');
  */commit;

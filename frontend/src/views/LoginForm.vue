@@ -53,13 +53,16 @@ export default {
         }
         axios.post(`${this.context}/login`, JSON.stringify(data), {headers: headers})
         .then(res=>{
-          if(res.data.seekerId !== null){
-            alert(`GET SUCCESS \nID : ${res.data.seekerId}\nNAME : ${res.data.seekerName}`)
+          if(res.data.seekerId != null){
+            this.$store.state.userId = res.data.seekerId
+            this.$store.state.authenticated = true
+            alert(`${res.data.seekerName}님 환영합니다.`)
+            this.$router.push({path:'/home'})
           }else{
             alert(`가입된 정보가 없습니다. ID : ${this.seekerId}`)
           }
         }).catch(e=>{
-          alert('통신 ERROR')
+          alert('ERROR')
         })
       }
     }
