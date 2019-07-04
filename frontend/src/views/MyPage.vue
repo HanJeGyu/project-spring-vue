@@ -145,7 +145,7 @@ export default {
       axios.delete(`${this.context}/${this.seekerId}`)
         .then(res=>{
           alert(`회원 탈퇴 ${res.data.result}`)
-          this.$store.state.authenticated = false
+          this.$store.commit('confirmout', res.data.seekerId)
           this.$router.push({path:'/home'})
         })
         .catch(e=>{

@@ -54,8 +54,7 @@ export default {
         axios.post(`${this.context}/login`, JSON.stringify(data), {headers: headers})
         .then(res=>{
           if(res.data.seekerId != null){
-            this.$store.state.userId = res.data.seekerId
-            this.$store.state.authenticated = true
+            this.$store.commit('confirmin', res.data.seekerId)
             alert(`${res.data.seekerName}님 환영합니다.`)
             this.$router.push({path:'/home'})
           }else{

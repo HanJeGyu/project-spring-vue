@@ -35,8 +35,7 @@ export default {
   },
   methods: {
     logout(){
-      this.$store.state.userId = ''
-      this.$store.state.authenticated = false
+      this.$store.commit('confirmout', res.data.seekerId)
     }
   }
 }
