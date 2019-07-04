@@ -50,7 +50,8 @@ export default {
         this.jobseekers = res.data
       })
       .catch(e=>{
-        alert('ERROR')
+        alert('페이지 출력 오류')
+        this.$router.go(-1)
       })
   },
   methods: {

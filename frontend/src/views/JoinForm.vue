@@ -63,7 +63,7 @@ export default {
   created(){
     if(this.$store.state.authenticated == true){
       alert('페이지에 접근 할 수 없습니다. 현재 로그인 상태입니다.')
-      this.$router.push({path:'/home'})
+      this.$router.go(-1)
     }
   },
   methods: {
