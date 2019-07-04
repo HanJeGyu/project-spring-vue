@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     logout(){
-      this.$store.commit('confirmout', res.data.seekerId)
+      this.$store.commit('confirmout')
+      alert('로그아웃 되었습니다.')
     }
   }
 }

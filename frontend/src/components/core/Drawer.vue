@@ -56,7 +56,7 @@ export default {
       { to: '/login', text: '로그인' },
       { to: '/join', text: '회원가입' },
       { to: '/mypage', text: '마이페이지' },
-      { to: '/seeker-list', text: '회원목록(관리자)' }
+      { to: '/seeker-list', text: '회원목록' }
     ],
     responsive: false
   }),

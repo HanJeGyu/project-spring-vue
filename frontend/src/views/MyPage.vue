@@ -57,7 +57,7 @@
               <v-flex xs12 text-xs-right>
                 <v-btn v-on:click="modify" class="mx-0 font-weight-light" color="success">수정하기</v-btn>
                 <v-btn v-on:click="del" class="mx-0 font-weight-light" color="success">탈퇴하기</v-btn>
-                <v-btn to="/" class="mx-0 font-weight-light" color="success">취소</v-btn>
+                <v-btn to="/home" class="mx-0 font-weight-light" color="success">취소</v-btn>
               </v-flex>
               </v-layout>
             </v-container>
@@ -145,7 +145,7 @@ export default {
       axios.delete(`${this.context}/${this.seekerId}`)
         .then(res=>{
           alert(`회원 탈퇴 ${res.data.result}`)
-          this.$store.commit('confirmout', res.data.seekerId)
+          this.$store.commit('confirmout')
           this.$router.push({path:'/home'})
         })
         .catch(e=>{
