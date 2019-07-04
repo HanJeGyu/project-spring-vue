@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/jobseekers")
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 public class JobseekerController {
 
     @Autowired JobseekerRepository jbrep;

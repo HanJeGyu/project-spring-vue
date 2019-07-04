@@ -31,7 +31,7 @@ import axios from 'axios'
 export default {
   data(){
     return {
-      context: 'http://localhost:8888/jobseekers',
+      context: '/jobseekers',
       seekerId: '',
       password: ''
     }

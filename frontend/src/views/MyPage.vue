@@ -74,7 +74,7 @@ import axios from 'axios'
 export default {
   data(){
     return {
-      context: 'http://localhost:8888/jobseekers',
+      context: '/jobseekers',
       seekerId: '', 
       seekerName: '', 
       password: '', 
@@ -135,13 +135,14 @@ export default {
         axios.put(`${this.context}/modify`, JSON.stringify(data), {headers: headers})
         .then(res=>{
           alert(`회원정보 수정 ${res.data.result}`)
+          this.$router.push({path:'/home'})
         }).catch(e=>{
           alert('ERROR')
         })
       }
     },
     del(){
-      axios.delete(`${this.context}/${this.id}`)
+      axios.delete(`${this.context}/${this.seekerId}`)
         .then(res=>{
           alert(`회원 탈퇴 ${res.data.result}`)
           this.$store.state.authenticated = false
